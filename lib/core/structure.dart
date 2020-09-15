@@ -25,7 +25,7 @@ class Structure {
         path: 'lib/infrastructure/navigation/navigation.dart'),
     //generator files
     'generate_locales': replaceAsExpected(path: 'lib/generated/'),
-    'generate_model': replaceAsExpected(path: 'lib/generated/models/'),
+    'generate_model': replaceAsExpected(path: 'lib/app/data/models/'),
   };
 
   static FileModel model(String name, String command, bool wrapperFolder,
