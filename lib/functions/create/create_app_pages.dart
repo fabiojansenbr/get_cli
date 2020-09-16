@@ -52,7 +52,7 @@ Future<void> addAppPage(String name) async {
   String namePascalCase = name.pascalCase;
   String line = '''    GetPage(
       name: Routes.${nameSnakeCase.toUpperCase()}, 
-      page:()=> ${namePascalCase}View(), 
+      page:()=> ${namePascalCase}Page(), 
       binding: ${namePascalCase}Binding(),
     ),''';
   String import = Directory(Structure.replaceAsExpected(
@@ -64,7 +64,7 @@ Future<void> addAppPage(String name) async {
   lines.insert(0,
       '''import '../$import/$nameSnakeCase/${nameSnakeCase}_binding.dart';''');
   lines.insert(
-      0, '''import '../$import/$nameSnakeCase/${nameSnakeCase}_view.dart';''');
+      0, '''import '../$import/$nameSnakeCase/${nameSnakeCase}_page.dart';''');
 
   await appPagesFile.writeAsStringSync(lines.join('\n'));
 }

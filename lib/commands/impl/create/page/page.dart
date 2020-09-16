@@ -19,7 +19,7 @@ class CreatePageCommand extends Command with CreateMixin {
     bool isProject = GetCli.arguments[1].split(':').first == 'project';
     FileModel _fileModel =
         Structure.model(isProject ? 'home' : name, 'page', true);
-    if (File(_fileModel.path + '_view.dart').existsSync() ||
+    if (File(_fileModel.path + '_page.dart').existsSync() ||
         File(_fileModel.path + '_binding.dart').existsSync() ||
         File(_fileModel.path + '_controller.dart').existsSync()) {
       LogService.info(
@@ -58,8 +58,8 @@ class CreatePageCommand extends Command with CreateMixin {
         .create();
 
     await GetViewSample(
-            _fileModel.path + '_view.dart',
-            name.pascalCase + 'View',
+            _fileModel.path + '_page.dart',
+            name.pascalCase + 'Page',
             name.pascalCase + 'Controller',
             controllerDir,
             overwrite: overwrite)
